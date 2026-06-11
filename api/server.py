@@ -23,6 +23,18 @@ from app.config.leagues import LEAGUES
 app = Flask(__name__)
 CORS(app)  # Allow the React dev-server (port 3000) to call this API
 
+@app.route("/")
+def home():
+    return {
+        "service": "Football Streaks API",
+        "status": "running",
+        "endpoints": [
+            "/api/health",
+            "/api/leagues",
+            "/api/streaks"
+        ]
+    }
+
 
 # ---------------------------------------------------------------------------
 # Helpers
