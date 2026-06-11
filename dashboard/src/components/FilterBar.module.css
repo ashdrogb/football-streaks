@@ -1,0 +1,102 @@
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+/* ── Type pills ────────────────────────────────────────────────────── */
+.pills {
+  display: flex;
+  gap: 6px;
+}
+
+.pill {
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  background: transparent;
+  transition: all var(--transition);
+}
+
+.pill:hover {
+  color: var(--text-primary);
+  border-color: var(--border-light);
+}
+
+.activePill {
+  background: var(--cyan-dim);
+  color: var(--cyan);
+  border-color: var(--cyan);
+}
+
+/* type-specific active colours */
+.active_win  { background: var(--win-dim);  color: var(--win);  border-color: var(--win);  }
+.active_draw { background: var(--draw-dim); color: var(--draw); border-color: var(--draw); }
+.active_loss { background: var(--loss-dim); color: var(--loss); border-color: var(--loss); }
+.active_ALL  { background: var(--cyan-dim); color: var(--cyan); border-color: var(--cyan); }
+
+/* ── Right cluster ─────────────────────────────────────────────────── */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.select {
+  background: var(--card);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.select:hover { border-color: var(--border-light); }
+.select:focus { border-color: var(--cyan); }
+
+.refreshBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 12px;
+  transition: all var(--transition);
+}
+
+.refreshBtn:hover:not(:disabled) {
+  color: var(--cyan);
+  border-color: var(--cyan);
+}
+
+.refreshBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.spinning svg {
+  animation: spin 0.8s linear infinite;
+}
+
+.timeStr {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

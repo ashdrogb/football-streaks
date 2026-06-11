@@ -1,0 +1,158 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────── */
+.header {
+  padding: 24px 24px 20px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wordmarkAccent {
+  color: var(--cyan);
+  font-size: 18px;
+  line-height: 1;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.wordmarkText {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-primary);
+}
+
+.tagline {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1;   }
+  50%       { opacity: 0.4; }
+}
+
+/* ── Main content area ───────────────────────────────────────────────── */
+.main {
+  flex: 1;
+  padding: 24px;
+}
+
+/* ── Card grid ───────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+/* ── Centred state (loading / error / empty) ─────────────────────────── */
+.centred {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+  gap: 12px;
+  text-align: center;
+}
+
+/* Loading spinner */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--cyan);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loadingText {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* Error state */
+.errorIcon {
+  font-size: 32px;
+  color: var(--loss);
+}
+
+.errorHeading {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.errorDetail {
+  font-size: 13px;
+  color: var(--text-muted);
+  max-width: 400px;
+}
+
+.retryBtn {
+  margin-top: 8px;
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  background: var(--loss-dim);
+  color: var(--loss);
+  border: 1px solid var(--loss);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+
+.retryBtn:hover {
+  background: var(--loss);
+  color: var(--pitch);
+}
+
+/* Empty state */
+.emptyHeading {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.emptyDetail {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.inlineBtn {
+  color: var(--cyan);
+  font-size: inherit;
+  text-decoration: underline;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .header { padding: 16px; gap: 8px; }
+  .main   { padding: 16px; }
+  .grid   { grid-template-columns: 1fr; }
+}
